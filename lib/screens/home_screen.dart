@@ -1,6 +1,8 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:rahala/screens/hotel_screen.dart';
+import 'package:rahala/screens/ticket_screen.dart';
 import 'package:rahala/uintes/app_style.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -84,7 +86,41 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  Gap(15),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.only(left: 20),
+                    child: Row(
+                      children: [
+                        TicketScreen(),
+                        TicketScreen(),
+                      ],
+                    ),
+                  ),
+                  Gap(15),
+                  //Hotels
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Hotels',
+                        style: Styles.headLine_Style_2,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          print(
+                              '_____his clicked from home screen hotel sections_____');
+                        },
+                        child: Text(
+                          'View all',
+                          style: Styles.text_Style,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Gap(15),
+                  HotelsScreen(),
                 ],
               ),
             ),
