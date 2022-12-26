@@ -5,7 +5,9 @@ import 'package:rahala/uintes/app_style.dart';
 import 'package:rahala/widgets/thickcontainer.dart';
 
 class TicketScreen extends StatelessWidget {
-  const TicketScreen({Key? key}) : super(key: key);
+  final Map<String, dynamic>? ticketList;
+
+  const TicketScreen({Key? key, this.ticketList}) : super(key: key);
 
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
@@ -20,12 +22,12 @@ class TicketScreen extends StatelessWidget {
             show the blue part of the card/ticket
              */
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(AppLayout.getHeight(16)),
               decoration: BoxDecoration(
                 color: Styles.orangeColor,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
+                  topLeft: Radius.circular(AppLayout.getHeight(15)),
+                  topRight: Radius.circular(AppLayout.getHeight(15)),
                 ),
               ),
               child: Column(
@@ -33,7 +35,7 @@ class TicketScreen extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'NYC',
+                        '${ticketList!['from']['code']}',
                         style: Styles.headLine_Style_3
                             .copyWith(color: Colors.white),
                       ),
@@ -82,34 +84,34 @@ class TicketScreen extends StatelessWidget {
                       ThickContainer(),
                       Spacer(),
                       Text(
-                        'LDN',
+                        '${ticketList!['to']['code']}',
                         style: Styles.headLine_Style_3.copyWith(
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
-                  Gap(3),
+                  Gap(AppLayout.getHeight(3)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        width: 100,
+                        width: AppLayout.getWidth(100),
                         child: Text(
-                          'New-York',
+                          '${ticketList!['from']['name']}',
                           style: Styles.headLine_Style_4
                               .copyWith(color: Colors.white),
                         ),
                       ),
                       Text(
-                        '8H 30M',
+                        '${ticketList!['fly_time']}',
                         style: Styles.headLine_Style_4
                             .copyWith(color: Colors.white),
                       ),
                       Container(
-                        width: 100,
+                        width: AppLayout.getWidth(100),
                         child: Text(
-                          'London',
+                          '${ticketList!['to']['name']}',
                           textAlign: TextAlign.end,
                           style: Styles.headLine_Style_4
                               .copyWith(color: Colors.white),
@@ -130,12 +132,12 @@ class TicketScreen extends StatelessWidget {
                   Container(
                     height: 20,
                     width: 10,
-                    padding: EdgeInsets.all(16),
+                    padding: EdgeInsets.all(AppLayout.getHeight(16)),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
+                        topRight: Radius.circular(AppLayout.getHeight(15)),
+                        bottomRight: Radius.circular(AppLayout.getHeight(15)),
                       ),
                     ),
                   ),
@@ -149,8 +151,8 @@ class TicketScreen extends StatelessWidget {
                             children: List.generate(
                                 (constrain.constrainWidth() / 20).floor(),
                                 (index) => Container(
-                                      width: 5,
-                                      height: 2,
+                                      width: AppLayout.getHeight(5),
+                                      height: AppLayout.getHeight(2),
                                       child: DecoratedBox(
                                           decoration: BoxDecoration(
                                               color: Colors.white)),
@@ -161,14 +163,14 @@ class TicketScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 20,
-                    width: 10,
-                    padding: EdgeInsets.all(16),
+                    height: AppLayout.getHeight(20),
+                    width: AppLayout.getWidth(10),
+                    padding: EdgeInsets.all(AppLayout.getHeight(16)),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        bottomLeft: Radius.circular(15),
+                        topLeft: Radius.circular(AppLayout.getHeight(15)),
+                        bottomLeft: Radius.circular(AppLayout.getHeight(15)),
                       ),
                     ),
                   ),
@@ -179,13 +181,17 @@ class TicketScreen extends StatelessWidget {
             show the red part of the card/ticket
              */
             Container(
-              padding:
-                  EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 10),
+              padding: EdgeInsets.only(
+                left: AppLayout.getHeight(16),
+                right: AppLayout.getHeight(16),
+                bottom: AppLayout.getHeight(16),
+                top: AppLayout.getHeight(10),
+              ),
               decoration: BoxDecoration(
                 color: Colors.redAccent,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(AppLayout.getHeight(15)),
+                  bottomRight: Radius.circular(AppLayout.getHeight(15)),
                 ),
               ),
               child: Column(
@@ -197,7 +203,7 @@ class TicketScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '1 MAY',
+                            '${ticketList!['date']}',
                             style: Styles.headLine_Style_4
                                 .copyWith(color: Colors.white),
                           ),
@@ -213,7 +219,7 @@ class TicketScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            '08:00 AM',
+                            '${ticketList!['departure_time']}',
                             style: Styles.headLine_Style_4
                                 .copyWith(color: Colors.white),
                           ),
@@ -229,7 +235,7 @@ class TicketScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            '23',
+                            '${ticketList!['number']}',
                             style: Styles.headLine_Style_4
                                 .copyWith(color: Colors.white),
                           ),

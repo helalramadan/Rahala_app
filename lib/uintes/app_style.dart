@@ -7,6 +7,7 @@ class Styles {
   static Color textColor = Color(0xff3b3b3b);
   static Color bgColor = Color(0xffeeedf2);
   static Color orangeColor = Color(0xff526799);
+  static Color kakiColor = Color(0xffd2bdb6);
   static TextStyle text_Style =
       TextStyle(fontSize: 16, color: textColor, fontWeight: FontWeight.w500);
   static TextStyle headLine_Style_1 =
