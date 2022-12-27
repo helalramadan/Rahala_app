@@ -5,6 +5,7 @@ import 'package:rahala/screens/hotel_screen.dart';
 import 'package:rahala/screens/ticket_screen.dart';
 import 'package:rahala/uintes/app_info_hotel.dart';
 import 'package:rahala/uintes/app_style.dart';
+import 'package:rahala/uintes/app_textbar_widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -69,24 +70,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Gap(25),
                   //Upcoming Now
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Upcoming Flights',
-                        style: Styles.headLine_Style_2,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          print(
-                              '_____his clicked from home screen upcoming sections_____');
-                        },
-                        child: Text(
-                          'View all',
-                          style: Styles.text_Style,
-                        ),
-                      ),
-                    ],
+                  AppTextBarMain(
+                    bigText: 'Upcoming Flights',
+                    smallText: 'View all',
                   ),
                   Gap(15),
                   SingleChildScrollView(
@@ -99,24 +85,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Gap(15),
                   //Hotels
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Hotels',
-                        style: Styles.headLine_Style_2,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          print(
-                              '_____his clicked from home screen hotel sections_____');
-                        },
-                        child: Text(
-                          'View all',
-                          style: Styles.text_Style,
-                        ),
-                      ),
-                    ],
+                  AppTextBarMain(
+                    bigText: 'Hotels',
+                    smallText: 'View all',
                   ),
                   Gap(15),
                   SingleChildScrollView(
