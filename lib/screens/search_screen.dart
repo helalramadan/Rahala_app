@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:rahala/uintes/app_bat_tap.dart';
 import 'package:rahala/uintes/app_layout.dart';
 import 'package:rahala/uintes/app_style.dart';
 import 'package:rahala/uintes/app_text_icon_widget.dart';
@@ -31,56 +32,10 @@ class SearchScreen extends StatelessWidget {
             Gap(
               AppLayout.getHeight(20),
             ),
-            FittedBox(
-              child: Container(
-                padding: EdgeInsets.all(3.5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    AppLayout.getHeight(50),
-                  ),
-                  color: Color(0xfff4f6fd),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: AppLayout.getHeight(7),
-                        ),
-                        width: size.width * 0.44,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(
-                                AppLayout.getHeight(50),
-                              ),
-                              bottomLeft: Radius.circular(
-                                AppLayout.getHeight(50),
-                              ),
-                            ),
-                            color: Colors.white),
-                        child: Center(
-                          child: Text(
-                            'Airline Ticketes',
-                          ),
-                        )),
-                    Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: AppLayout.getHeight(7),
-                        ),
-                        width: size.width * 0.44,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(
-                                AppLayout.getHeight(50),
-                              ),
-                              bottomRight: Radius.circular(
-                                AppLayout.getHeight(50),
-                              ),
-                            ),
-                            color: Colors.transparent),
-                        child: Center(child: Text('Hotels'))),
-                  ],
-                ),
-              ),
+
+            AppBarTap(
+              text1: 'Airline Ticketes',
+              text2: 'Hotels',
             ),
             Gap(
               AppLayout.getHeight(25),
@@ -119,31 +74,139 @@ class SearchScreen extends StatelessWidget {
             ),
             Gap(AppLayout.getHeight(10)),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: size.width * 0.44,
-                  height: 450,
+                  padding: EdgeInsets.all(AppLayout.getHeight(15)),
+                  width: size.width * 0.42,
+                  height: AppLayout.getHeight(400),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius:
-                          BorderRadius.circular(AppLayout.getHeight(25))),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(
+                      AppLayout.getHeight(25),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade200,
+                        blurRadius: 1,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                  ),
                   child: Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: AppLayout.getHeight(10)),
-                        width: size.width * 0.40,
-                        height: 250,
+                        height: AppLayout.getHeight(190),
                         decoration: BoxDecoration(
                           borderRadius:
-                              BorderRadius.circular(AppLayout.getHeight(25)),
+                          BorderRadius.circular(AppLayout.getHeight(25)),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage('assets/images/hotel_3_ .jpg'),
                           ),
                         ),
                       ),
+                      Gap(
+                        AppLayout.getHeight(15),
+                      ),
+                      Text(
+                        '20% discount on the early booking of this flight , Don`t  miss out this chance',
+                        style: Styles.headLine_Style_2
+                            .copyWith(letterSpacing: 1.5),
+                      )
                     ],
                   ),
+                ),
+                Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          width: size.width * 0.44,
+                          height: AppLayout.getHeight(174),
+                          decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(AppLayout.getHeight(25)),
+                            color: Color(0xff3ab8b8),
+                          ),
+                          padding: EdgeInsets.all(AppLayout.getHeight(15)),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Discount\nfor survev',
+                                style: Styles.headLine_Style_2.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Gap(AppLayout.getHeight(10)),
+                              Text(
+                                'Take the survev about our services and get discount',
+                                style: Styles.headLine_Style_2.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          top: -45,
+                          right: -40,
+                          child: Container(
+                            padding: EdgeInsets.all(AppLayout.getHeight(30)),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    width: 18, color: Color(0xff189999))),
+                          ),
+                        )
+                      ],
+                    ),
+                    Gap(AppLayout.getHeight(10)),
+                    Container(
+                      width: size.width * 0.44,
+                      height: AppLayout.getHeight(210),
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.circular(AppLayout.getHeight(25)),
+                        color: Color(0xffec6545),
+                      ),
+                      padding: EdgeInsets.all(AppLayout.getHeight(15)),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Take Love',
+                            style: Styles.headLine_Style_2.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Gap(AppLayout.getHeight(10)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: '😍',
+                                  style: TextStyle(fontSize: 38),
+                                ),
+                                TextSpan(
+                                  text: '🥰',
+                                  style: TextStyle(fontSize: 50),
+                                ),
+                                TextSpan(
+                                  text: '😘',
+                                  style: TextStyle(fontSize: 38),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

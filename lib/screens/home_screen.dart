@@ -2,7 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:rahala/screens/hotel_screen.dart';
-import 'package:rahala/screens/ticket_screen.dart';
+import 'package:rahala/screens/ticket_screen_view.dart';
 import 'package:rahala/uintes/app_info_hotel.dart';
 import 'package:rahala/uintes/app_style.dart';
 import 'package:rahala/uintes/app_textbar_widgets.dart';
@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: 20),
                     child: Row(
                         children: ticketList
-                            .map((e) => TicketScreen(ticketList: e))
+                            .map((e) => TicketScreen_View(ticketList: e))
                             .toList()),
                   ),
                   Gap(15),
