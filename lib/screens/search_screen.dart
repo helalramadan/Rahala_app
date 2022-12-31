@@ -32,7 +32,6 @@ class SearchScreen extends StatelessWidget {
             Gap(
               AppLayout.getHeight(20),
             ),
-
             AppBarTap(
               text1: 'Airline Ticketes',
               text2: 'Hotels',
@@ -78,7 +77,7 @@ class SearchScreen extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.all(AppLayout.getHeight(15)),
-                  width: size.width * 0.42,
+                  width: size.width * 0.43,
                   height: AppLayout.getHeight(400),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -96,10 +95,10 @@ class SearchScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: AppLayout.getHeight(190),
+                        height: AppLayout.getHeight(200),
                         decoration: BoxDecoration(
                           borderRadius:
-                          BorderRadius.circular(AppLayout.getHeight(25)),
+                              BorderRadius.circular(AppLayout.getHeight(25)),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage('assets/images/hotel_3_ .jpg'),
@@ -107,12 +106,11 @@ class SearchScreen extends StatelessWidget {
                         ),
                       ),
                       Gap(
-                        AppLayout.getHeight(15),
+                        AppLayout.getHeight(10),
                       ),
                       Text(
-                        '20% discount on the early booking of this flight , Don`t  miss out this chance',
-                        style: Styles.headLine_Style_2
-                            .copyWith(letterSpacing: 1.5),
+                        '20% discount on the early booking of this flight, Don`t miss out this chance',
+                        style: Styles.headLine_Style_2.copyWith(fontSize: 19),
                       )
                     ],
                   ),
@@ -122,11 +120,11 @@ class SearchScreen extends StatelessWidget {
                     Stack(
                       children: [
                         Container(
-                          width: size.width * 0.44,
-                          height: AppLayout.getHeight(174),
+                          width: size.width * 0.43,
+                          height: AppLayout.getHeight(185),
                           decoration: BoxDecoration(
                             borderRadius:
-                            BorderRadius.circular(AppLayout.getHeight(25)),
+                                BorderRadius.circular(AppLayout.getHeight(25)),
                             color: Color(0xff3ab8b8),
                           ),
                           padding: EdgeInsets.all(AppLayout.getHeight(15)),
@@ -140,12 +138,12 @@ class SearchScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Gap(AppLayout.getHeight(10)),
+                              Gap(AppLayout.getHeight(5)),
                               Text(
                                 'Take the survev about our services and get discount',
                                 style: Styles.headLine_Style_2.copyWith(
                                     color: Colors.white,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w300,
                                     fontSize: 18),
                               ),
                             ],
@@ -170,7 +168,7 @@ class SearchScreen extends StatelessWidget {
                       height: AppLayout.getHeight(210),
                       decoration: BoxDecoration(
                         borderRadius:
-                        BorderRadius.circular(AppLayout.getHeight(25)),
+                            BorderRadius.circular(AppLayout.getHeight(25)),
                         color: Color(0xffec6545),
                       ),
                       padding: EdgeInsets.all(AppLayout.getHeight(15)),

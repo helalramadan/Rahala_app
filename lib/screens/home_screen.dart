@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:rahala/screens/hotel_screen.dart';
 import 'package:rahala/screens/ticket_screen_view.dart';
-import 'package:rahala/uintes/app_info_hotel.dart';
+import 'package:rahala/uintes/app_info_hotel&tickets.dart';
 import 'package:rahala/uintes/app_style.dart';
 import 'package:rahala/uintes/app_textbar_widgets.dart';
 

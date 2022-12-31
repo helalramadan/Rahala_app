@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:rahala/uintes/app_layout.dart';
 import 'package:rahala/uintes/app_style.dart';
 import 'package:rahala/widgets/thickcontainer.dart';
 
 class TicketScreen_View extends StatelessWidget {
-  final Map<String, dynamic>? ticketList;
+  final Map<String, dynamic> ticketList;
+  final bool? isColor;
 
-  const TicketScreen_View({Key? key, this.ticketList}) : super(key: key);
+  const TicketScreen_View({Key? key, required this.ticketList, this.isColor})
+      : super(key: key);
 
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return Container(
       width: size.width * 0.85,
-      height: 200,
+      height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 155 : 158),
       child: Container(
-        margin: EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: AppLayout.getHeight(16)),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             /*
             show the blue part of the card/ticket
@@ -24,7 +28,9 @@ class TicketScreen_View extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(AppLayout.getHeight(16)),
               decoration: BoxDecoration(
-                color: Styles.orangeColor,
+                color: isColor == false || isColor == null
+                    ? Styles.orangeColor
+                    : Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(AppLayout.getHeight(15)),
                   topRight: Radius.circular(AppLayout.getHeight(15)),
@@ -35,12 +41,16 @@ class TicketScreen_View extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '${ticketList!['from']['code']}',
-                        style: Styles.headLine_Style_3
-                            .copyWith(color: Colors.white),
+                        '${ticketList['from']['code']}',
+                        style: Styles.headLine_Style_3.copyWith(
+                            color: isColor == false || isColor == null
+                                ? Colors.white
+                                : Colors.black),
                       ),
                       Spacer(),
-                      ThickContainer(),
+                      isColor == false || isColor == null
+                          ? ThickContainer()
+                          : ThickContainer_1(),
                       Expanded(
                         child: Stack(
                           children: [
@@ -62,7 +72,10 @@ class TicketScreen_View extends StatelessWidget {
                                               height: 2,
                                               child: DecoratedBox(
                                                 decoration: BoxDecoration(
-                                                    color: Colors.white),
+                                                    color: isColor == false ||
+                                                            isColor == null
+                                                        ? Colors.white
+                                                        : Colors.grey.shade300),
                                               ),
                                             )),
                                   );
@@ -74,19 +87,25 @@ class TicketScreen_View extends StatelessWidget {
                                 angle: 1.5,
                                 child: Icon(
                                   Icons.airplanemode_active_rounded,
-                                  color: Colors.white,
+                                  color: isColor == false || isColor == null
+                                      ? Colors.white
+                                      : Color(0xff8accf7),
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      ThickContainer(),
+                      isColor == false || isColor == null
+                          ? ThickContainer()
+                          : ThickContainer_1(),
                       Spacer(),
                       Text(
-                        '${ticketList!['to']['code']}',
+                        '${ticketList['to']['code']}',
                         style: Styles.headLine_Style_3.copyWith(
-                          color: Colors.white,
+                          color: isColor == false || isColor == null
+                              ? Colors.white
+                              : Colors.black,
                         ),
                       ),
                     ],
@@ -98,23 +117,29 @@ class TicketScreen_View extends StatelessWidget {
                       Container(
                         width: AppLayout.getWidth(100),
                         child: Text(
-                          '${ticketList!['from']['name']}',
-                          style: Styles.headLine_Style_4
-                              .copyWith(color: Colors.white),
+                          '${ticketList['from']['name']}',
+                          style: Styles.headLine_Style_4.copyWith(
+                              color: isColor == false || isColor == null
+                                  ? Colors.white
+                                  : Colors.grey.shade300),
                         ),
                       ),
                       Text(
-                        '${ticketList!['fly_time']}',
-                        style: Styles.headLine_Style_4
-                            .copyWith(color: Colors.white),
+                        '${ticketList['fly_time']}',
+                        style: Styles.headLine_Style_4.copyWith(
+                            color: isColor == false || isColor == null
+                                ? Colors.white
+                                : Colors.black),
                       ),
                       Container(
                         width: AppLayout.getWidth(100),
                         child: Text(
-                          '${ticketList!['to']['name']}',
+                          '${ticketList['to']['name']}',
                           textAlign: TextAlign.end,
-                          style: Styles.headLine_Style_4
-                              .copyWith(color: Colors.white),
+                          style: Styles.headLine_Style_4.copyWith(
+                              color: isColor == false || isColor == null
+                                  ? Colors.white
+                                  : Colors.grey.shade300),
                         ),
                       ),
                     ],
@@ -126,7 +151,9 @@ class TicketScreen_View extends StatelessWidget {
             show the orange part of the card/ticket
              */
             Container(
-              color: Colors.redAccent,
+              color: isColor == false || isColor == null
+                  ? Colors.redAccent
+                  : Colors.white,
               child: Row(
                 children: [
                   Container(
@@ -134,7 +161,9 @@ class TicketScreen_View extends StatelessWidget {
                     width: 10,
                     padding: EdgeInsets.all(AppLayout.getHeight(16)),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: isColor == false || isColor == null
+                          ? Colors.grey.shade300
+                          : Colors.white,
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(AppLayout.getHeight(15)),
                         bottomRight: Radius.circular(AppLayout.getHeight(15)),
@@ -154,8 +183,13 @@ class TicketScreen_View extends StatelessWidget {
                                       width: AppLayout.getHeight(5),
                                       height: AppLayout.getHeight(2),
                                       child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                              color: Colors.white)),
+                                        decoration: BoxDecoration(
+                                          color: isColor == false ||
+                                                  isColor == null
+                                              ? Colors.grey.shade300
+                                              : Colors.white,
+                                        ),
+                                      ),
                                     )),
                           );
                         },
@@ -167,7 +201,9 @@ class TicketScreen_View extends StatelessWidget {
                     width: AppLayout.getWidth(10),
                     padding: EdgeInsets.all(AppLayout.getHeight(16)),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: isColor == false || isColor == null
+                          ? Colors.grey.shade300
+                          : Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(AppLayout.getHeight(15)),
                         bottomLeft: Radius.circular(AppLayout.getHeight(15)),
@@ -188,10 +224,14 @@ class TicketScreen_View extends StatelessWidget {
                 top: AppLayout.getHeight(10),
               ),
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: isColor == false || isColor == null
+                    ? Colors.redAccent
+                    : Colors.white,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(AppLayout.getHeight(15)),
-                  bottomRight: Radius.circular(AppLayout.getHeight(15)),
+                  bottomLeft: Radius.circular(AppLayout.getHeight(
+                      isColor == null || isColor == false ? 15 : 0)),
+                  bottomRight: Radius.circular(AppLayout.getHeight(
+                      isColor == null || isColor == false ? 15 : 0)),
                 ),
               ),
               child: Column(
@@ -203,15 +243,19 @@ class TicketScreen_View extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${ticketList!['date']}',
-                            style: Styles.headLine_Style_4
-                                .copyWith(color: Colors.white),
+                            '${ticketList['date']}',
+                            style: Styles.headLine_Style_4.copyWith(
+                                color: isColor == false || isColor == null
+                                    ? Colors.white
+                                    : Colors.black),
                           ),
                           Gap(5),
                           Text(
                             'Date',
-                            style: Styles.headLine_Style_4
-                                .copyWith(color: Colors.white),
+                            style: Styles.headLine_Style_4.copyWith(
+                                color: isColor == false || isColor == null
+                                    ? Colors.white
+                                    : Colors.grey.shade300),
                           ),
                         ],
                       ),
@@ -219,15 +263,19 @@ class TicketScreen_View extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            '${ticketList!['departure_time']}',
-                            style: Styles.headLine_Style_4
-                                .copyWith(color: Colors.white),
+                            '${ticketList['departure_time']}',
+                            style: Styles.headLine_Style_4.copyWith(
+                                color: isColor == false || isColor == null
+                                    ? Colors.white
+                                    : Colors.black),
                           ),
                           Gap(5),
                           Text(
                             'Departure Time',
-                            style: Styles.headLine_Style_4
-                                .copyWith(color: Colors.white),
+                            style: Styles.headLine_Style_4.copyWith(
+                                color: isColor == false || isColor == null
+                                    ? Colors.white
+                                    : Colors.grey.shade300),
                           ),
                         ],
                       ),
@@ -235,15 +283,19 @@ class TicketScreen_View extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            '${ticketList!['number']}',
-                            style: Styles.headLine_Style_4
-                                .copyWith(color: Colors.white),
+                            '${ticketList['number']}',
+                            style: Styles.headLine_Style_4.copyWith(
+                                color: isColor == false || isColor == null
+                                    ? Colors.white
+                                    : Colors.black),
                           ),
                           Gap(5),
                           Text(
                             'Number',
-                            style: Styles.headLine_Style_4
-                                .copyWith(color: Colors.white),
+                            style: Styles.headLine_Style_4.copyWith(
+                                color: isColor == false || isColor == null
+                                    ? Colors.white
+                                    : Colors.grey.shade300),
                           ),
                         ],
                       ),
