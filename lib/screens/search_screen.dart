@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:rahala/uintes/app_bat_tap.dart';
 import 'package:rahala/uintes/app_layout.dart';
 import 'package:rahala/uintes/app_style.dart';
-import 'package:rahala/uintes/app_text_icon_widget.dart';
-import 'package:rahala/uintes/app_textbar_widgets.dart';
+import 'package:rahala/widgets/app_bat_tap.dart';
+import 'package:rahala/widgets/app_text_icon_widget.dart';
+import 'package:rahala/widgets/app_textbar_widgets.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
