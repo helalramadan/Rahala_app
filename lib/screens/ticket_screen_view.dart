@@ -9,15 +9,13 @@ import 'package:rahala/widgets/thickcontainer.dart';
 
 class TicketScreen_View extends StatelessWidget {
   final Map<String, dynamic> ticketList;
-  final bool? isColor;
-  final bool isColorColumn;
+  final bool isColor;
 
-  const TicketScreen_View(
-      {Key? key,
-      required this.ticketList,
-      this.isColor,
-      required this.isColorColumn})
-      : super(key: key);
+  const TicketScreen_View({
+    Key? key,
+    required this.ticketList,
+    required this.isColor,
+  }) : super(key: key);
 
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
@@ -208,10 +206,10 @@ class TicketScreen_View extends StatelessWidget {
                           firstText: '${ticketList['date']}',
                           secondText: 'Date',
                           alignment: CrossAxisAlignment.start,
-                          isColorColumn: isColorColumn),
+                          isColor: isColor),
                       AppColumnLayout(
                         firstText: '${ticketList['departure_time']}',
-                        isColorColumn: isColorColumn,
+                        isColor: isColor,
                         alignment: CrossAxisAlignment.center,
                         secondText: 'Departure Time',
                       ),
@@ -219,7 +217,7 @@ class TicketScreen_View extends StatelessWidget {
                           firstText: '${ticketList['number']}',
                           secondText: 'Number',
                           alignment: CrossAxisAlignment.end,
-                          isColorColumn: isColorColumn),
+                          isColor: isColor),
                     ],
                   )
                 ],

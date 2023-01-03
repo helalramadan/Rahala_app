@@ -7,14 +7,14 @@ class AppColumnLayout extends StatelessWidget {
   final String firstText;
   final String secondText;
   final CrossAxisAlignment alignment;
-  final bool isColorColumn;
+  final bool? isColor;
 
   const AppColumnLayout(
       {Key? key,
       required this.firstText,
       required this.secondText,
       required this.alignment,
-      required this.isColorColumn})
+      this.isColor})
       : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class AppColumnLayout extends StatelessWidget {
         Text(
           firstText,
           style: Styles.headLine_Style_3.copyWith(
-              color: isColorColumn == false || isColorColumn == null
+              color: isColor == false || isColor == null
                   ? Colors.white
                   : Colors.black),
         ),
@@ -33,7 +33,7 @@ class AppColumnLayout extends StatelessWidget {
         Text(
           secondText,
           style: Styles.headLine_Style_4.copyWith(
-              color: isColorColumn == false || isColorColumn == null
+              color: isColor == false || isColor == null
                   ? Colors.white
                   : Colors.grey.shade500),
         ),

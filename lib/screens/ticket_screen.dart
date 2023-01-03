@@ -48,8 +48,8 @@ class TicketScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: AppLayout.getHeight(14.7)),
                   child: TicketScreen_View(
                     ticketList: ticketList[0],
-                    isColorColumn: true,
                     isColor: true,
+
                   ),
                 ),
                 SizedBox(height: 1),
@@ -69,12 +69,12 @@ class TicketScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             AppColumnLayout(
-                                isColorColumn: true,
+                                isColor: true,
                                 alignment: CrossAxisAlignment.start,
                                 firstText: 'Flutter DB',
                                 secondText: 'Passenger'),
                             AppColumnLayout(
-                                isColorColumn: true,
+                                isColor: true,
                                 alignment: CrossAxisAlignment.end,
                                 firstText: '5221364869',
                                 secondText: 'Passsport')
@@ -90,12 +90,12 @@ class TicketScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             AppColumnLayout(
-                                isColorColumn: true,
+                                isColor: true,
                                 alignment: CrossAxisAlignment.start,
                                 firstText: '005544477147',
                                 secondText: 'Number of E-ticket'),
                             AppColumnLayout(
-                                isColorColumn: true,
+                                isColor: true,
                                 alignment: CrossAxisAlignment.end,
                                 firstText: 'B2SG28',
                                 secondText: 'Book code')
@@ -133,7 +133,7 @@ class TicketScreen extends StatelessWidget {
                               ],
                             ),
                             AppColumnLayout(
-                                isColorColumn: true,
+                                isColor: true,
                                 alignment: CrossAxisAlignment.end,
                                 firstText: '\$253.99',
                                 secondText: 'Price'),
@@ -181,8 +181,8 @@ class TicketScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: AppLayout.getHeight(14.7)),
                   child: TicketScreen_View(
                     ticketList: ticketList[0],
-                    isColorColumn: false,
                     isColor: false,
+
                   ),
                 ),
               ],
